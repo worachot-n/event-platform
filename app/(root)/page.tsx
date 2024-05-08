@@ -1,4 +1,6 @@
+import CategoryFilter from "@/components/shared/CategoryFilter";
 import Collection from "@/components/shared/Collection";
+import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { SearchParamProps } from "@/types";
@@ -33,6 +35,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
               <Link href="#events">Explore Now</Link>
             </Button>
           </div>
+
           <Image
             src="/assets/images/hero.png"
             alt="hero"
@@ -42,6 +45,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           />
         </div>
       </section>
+
       <section
         id="events"
         className="wrapper my-8 flex flex-col gap-8 md:gap-12"
@@ -49,9 +53,12 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <h2 className="h2-bold">
           Trust by <br /> Thousands of Events
         </h2>
+
         <div className="flex w-full flex-col gap-5 md:flex-row">
-          Search CategoryFilter
+          <Search />
+          <CategoryFilter />
         </div>
+
         <Collection
           data={events?.data}
           emptyTitle="No Events Found"
